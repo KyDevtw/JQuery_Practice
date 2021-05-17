@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table class="table empty">
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td></td>
+                <td>3</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+        // 針對內容為空的的標籤做選取
+        // 選取空標籤不能使用contnet包空值
+        $(".empty td:empty").css("background", "yellow");
+    </script>
+</body>
+</html>

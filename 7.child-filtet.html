@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="box">box1</div>
+            <span> hihi</span>
+            <div class="box">box2</div>
+            <div class="box">box3</div>
+            <div class="box">box4</div>
+            <span> hihi2</span>
+            <div class="box">box5</div>
+            <div class="box">box6</div>
+            <div class="box">box7</div>
+            <div class="box">box8</div>
+            <div class="box">box9</div>
+            <div class="box">box10</div>
+            <div class="box">box11</div>
+            <div class="box">box12</div>
+        </div>
+        <div class="row">
+            <span> hihi2</span>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        // 如果單純用:first-child會抓出巢狀結構內所有的first-child
+        $('.box:first-child').css('background','red');
+
+        // 如果單純用:last-child會抓出巢狀結構內所有的last-child
+        $('div:last-child').css('background', 'red');
+
+
+        // 用:first-of-type會抓出巢狀結構內所有的第一個標籤
+        $('span:first-of-type').css('background', 'yellow');
+        // 用:last-of-type會抓出巢狀結構內所有的最後一個標籤
+        $('span:last-of-type').css('background', 'yellow');
+
+        // 用:nth-child(n)選出第n個小孩，這邊並不是使用索引值
+        // filter是設定條件這邊的解釋方為必須為box又是第n個child才會選取
+        $('.box:nth-child(1)').css('background', 'violet');
+        // 用:nth-last-child(n)選出倒數第n個小孩
+        $('.box:nth-last-child(1)').css('background', 'violet');
+
+
+        // 用:nth-of-type(n)會抓出巢狀結構內所有的第n個標籤，還有一個nth-last-of-type(n)
+        $('span:nth-of-type(2)').css('background', 'yellow');
+
+        // 如果單純用:only-child會抓出巢狀結構內唯一的child
+        $('span:only-child').css('background', 'green');
+
+    </script>
+</body>
+</html>
