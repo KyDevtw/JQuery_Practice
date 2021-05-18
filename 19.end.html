@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Get Started</title>
+    
+</head>
+<body>
+
+    <ul class="first">
+        <li class="a1">list item 1</li>
+        <li>list item 2</li>
+        <li class="a2">list item 3</li>
+    </ul>
+    <ul class="second">
+        <li class="a1">list item 1</li>
+        <li>list item 2</li>
+        <li class="2">list item 3</li>
+    </ul>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+        $("ul.first")
+                .find(".a1")
+                .css("background-color", "red")
+                .end() //.end()- 回到上一個選取狀態(此處會回到 ul.first)
+                // 使用end要注意如果是basic filter跟遍歷的選取狀態會不一樣
+                // end 最高可以到document(DOM最上層)
+                // 如果使用method選取到某層則 .end() 也會回到本層，不一定只回到 $('選取器')
+                .find(".a2")
+                .css("background-color", "green");
+
+    </script>
+
+</body>
+</html>

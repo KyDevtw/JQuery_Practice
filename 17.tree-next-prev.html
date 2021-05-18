@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Get Started</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <ul class="level-1">
+                <li class="item-1">item1</li>
+                <li class="item-2">item2
+                    <ul class="level-2">
+                        <li class="item-01">item01</li>
+                        <li class="item-02">item02
+                            <ul class="level-3">
+                                <li class="item-001">item001</li>
+                                <li class="item-002">item002</li>
+                                <li class="item-003">item003</li>
+                            </ul>
+                        </li>
+                        <li class="item-03">item03</li>
+                    </ul>
+                </li>
+                <li class="item-3">item3</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+        // .next() - 往後找一個元素
+        // .nextAll() - 往後及其之後的元素
+        // .nextUntil() - 往後選但到特定元素後停止
+        // .next()系列只會在同層選取，如果同層沒有下一個就會選不到
+
+        $('.item-001').next().next().css('border' , '1px solid #ccc');
+        $('.item-001').nextAll().css('background', 'pink');
+        $('.item-001').nextUntil('.item-003').css('border', '1px solid blue');
+
+        // .prev() - 往前找一個元素
+        // .prevAll() - 往前及其之前的元素
+        // .prevUntil() - 往前選但到特定元素停止
+        // .prev()系列只會在同層選取，如果同層沒有前一個就會選不到
+
+        $('.item-003').prev().css('border', '1px solid #000');
+
+
+        // 與.parent()混搭
+        $(".item-001").parent().parent().parent().parent().prev().css('border', '1px solid red');
+
+    </script>
+
+</body>
+</html>

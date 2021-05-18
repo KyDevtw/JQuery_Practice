@@ -36,13 +36,10 @@
 
     <script>
 
-        
-
         // .parent() - 往上選取一層
-        // .closest() - 最接近祖先元素
-        // .parents() - 往上選取全部
+        // .closest() - 最接近祖先元素，只要找到符合條件的就停止
+        // .parents() - 往上選取全部，不停止找出所有符合條件的
         // .parentsUntil() - 往上選取全部並設定停止的元素
-
 
         $('.item-002').css('border', '1px solid red').parentsUntil('.item-2').css('border', '1px solid blue');
     </script>
