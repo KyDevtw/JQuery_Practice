@@ -15,25 +15,26 @@
         <div class="row">
             <table class="table table-bordered mt-5">
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input class="checkbox" type="checkbox"></td>
+                    <td>Elon Musk</td>
+                    <td>0912345678</td>
+                    <td>elonmusk@gmail.com</td>
+                    
+                </tr>
+                <tr>
+                    <td><input class="checkbox" type="checkbox"></td>
                     <td>Elon Musk</td>
                     <td>0912345678</td>
                     <td>elonmusk@gmail.com</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input class="checkbox" type="checkbox"></td>
                     <td>Elon Musk</td>
                     <td>0912345678</td>
                     <td>elonmusk@gmail.com</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"></td>
-                    <td>Elon Musk</td>
-                    <td>0912345678</td>
-                    <td>elonmusk@gmail.com</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input class="checkbox" type="checkbox"></td>
                     <td>Elon Musk</td>
                     <td>0912345678</td>
                     <td>elonmusk@gmail.com</td>
@@ -41,6 +42,21 @@
             </table>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        
+        $(':checkbox').click(function () {
+
+            if($(this).prop('checked')){
+
+                $(this).closest('tr').css('background', 'lightblue')
+            }else{
+                $(this).closest('tr').css('background', 'white')
+                };
+        });
+
+    </script>        
 </body>
 
 </html>
