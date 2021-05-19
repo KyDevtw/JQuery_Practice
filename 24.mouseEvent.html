@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Event</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 50px;
+            background-color: #afa;
+        }
+
+        .wrap {
+            width: 500px;
+            height: 500px;
+            background-color: #ccc;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">Click</div>
+
+    <div class="wrap">
+        <div class="mylink">Click</div>
+    </div>
+
+    <form action="">
+        <a href="">submit</a>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+        // 滑鼠監聽事件，只要滑鼠有被click就執行function
+
+        // 單擊左鍵
+        $('.box').click(function(){
+            console.log ('click');
+        });
+
+
+        // 雙擊左鍵
+        $('.box').dblclick(function () {
+                console.log('click');
+            });
+
+        // 單擊右鍵
+        $('.box').contextmenu(function () {
+            console.log('contextmenu');
+        });
+
+         // 按下左鍵的狀態
+        $('.box').mousedown(function () {
+            console.log('mousedown');
+        });
+
+        // 放開左鍵的狀態
+        $('.box').mouseup(function () {
+            console.log('mouseup');
+        });
+
+        // 行動裝置不會有hover，游標進入與離開都會執行hover
+        $('.box').hover(function () {
+            console.log('hover');
+        });
+
+        // 行動裝置不會有 mouseenter
+        $('.box').mouseenter(function () {
+            console.log('mouseenter');
+        });
+
+        // 行動裝置不會有 mouseleave
+        $('.box').mouseleave(function () {
+            console.log('mouseleave');
+        });
+
+        // 行動裝置不會有hover，游標進入與離開都會執行hover，可以寫成兩個function把進入離開分開
+        $('.box').hover(function () {
+            console.log('hoverEnter');
+        }, function () {
+            console.log('hoverLeave');
+        });
+
+
+        $('a').click(function (event) {
+                console.log('click');
+                event.preventDefault(); // 阻止a的預設動作（換頁或送出表單）
+                event.stopPropagation(); // 阻止冒泡
+                console.log('event');
+            });
+        
+        $('.mylink').click(function (event) {
+            console.log('mylink event.target', event.target);
+            // event.preventDefault();
+            event.stopPropagation();
+            console.log('mylink click');
+        })
+
+        $('.wrap').click(function (event) {
+            console.log('wrap event.target', event.target);
+            // event.preventDefault();
+            // event.stopPropagation();
+            console.log('wrap click');
+        })
+
+
+
+    </script>
+    
+</body>
+</html>

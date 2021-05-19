@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Carousel</title>
+
+    <style>
+        /* ul{
+            list-style-type: none;
+        } */
+
+        .wrap{
+            width: 800px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .img-wrap{
+            /* 五張圖的總寬 */
+            width: 4800px;
+            display: flex;
+            /* 圖片輪播前進 */
+            /* transform: translateX(-800px); */
+            height: 100%;
+            transition: 0.7s;
+        }
+
+        li{
+            flex-shrink: 1;
+            overflow: hidden;
+
+        }
+
+        li img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ------------------sliders CSS------------------ */
+
+        .slider-dots li {
+            width: 10px;
+            height: 10px;
+            margin: 10px;
+            border-radius: 50%;
+            background-color: #fff7;
+
+        }
+
+        .slider-dots{
+            width: 100%;
+            justify-content: center;
+            top: 370px;
+        }
+
+
+         .left-arrow{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 88px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-arrow{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0px;
+            width: 88px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fa-chevron-left{
+            color: #fff7;
+        }
+
+        .fa-chevron-right{
+            color: #fff7;
+        }
+
+
+    </style>
+    
+</head>
+<body>
+
+    <div class="wrap mt-5 position-relative mx-auto">
+        <ul class="list-unstyled img-wrap ">
+            <li><img src="./imgs/slide1.jpg" alt=""></li>
+            <li><img src="./imgs/slide2.jpg" alt=""></li>
+            <li><img src="./imgs/slide3.jpg" alt=""></li>
+            <li><img src="./imgs/slide4.jpg" alt=""></li>
+            <li><img src="./imgs/slide5.jpg" alt=""></li>
+            <li><img src="./imgs/slide1.jpg" alt=""></li>
+        </ul>
+        <ul class="list-unstyled slider-dots d-flex position-absolute">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div class="left-arrow position-absolute">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="right-arrow position-absolute">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    
+    <script>
+
+        //  進入頁面顯示第一張圖的第一個點
+        $('.slider-dots li').first().css('background', '#fff')
+
+        //  如果hover滑鼠離開要改回原顏色使用兩個function不用siblings
+        $('.slider-dots li').hover(function(){
+            $(this).css('background','#fff').siblings().css('background', '#fff7');
+        });
+
+        $('.slider-dots li').click(function () {
+            nowPage = $(this).index();
+            const moveX = -800 * $(this).index();
+            // ``樣板字串塞變數
+            $('.img-wrap').css('transform', `translateX(${moveX}px)`);
+
+        });
+
+
+        /*-----------  左右切換按鈕  ----------- */
+        let nowPage = 0;
+        $('.right-arrow').click(function () {
+
+            // 防止無限往右切換，return 就會直接停止
+            if(nowPage >= 4) return;
+            nowPage++
+            const moveX = -800 * nowPage;
+            $('.img-wrap').css('transform', `translateX(${moveX}px)`);
+
+            // 控制底下白色點點跟著一起切換
+            $('.slider-dots li').eq(nowPage).css('background', '#fff').siblings().css('background', '#fff7');
+        });
+
+        $('.left-arrow').click(function(){
+            if (nowPage <= 0) return;
+            nowPage--
+            const moveX = -800 * nowPage;
+            $('.img-wrap').css('transform', `translateX(${moveX}px)`);
+            $('.slider-dots li').eq(nowPage).css('background', '#fff').siblings().css('background', '#fff7');
+        });
+
+        
+        let myInterval;
+        // 預設執行 MyInterval
+        startMyInterval();
+        function startMyInterval() {
+            // setInterval 每千分之一單位秒固定執行一次
+            myInterval = setInterval(function(){
+                changePages();
+            // 1000 x 0.001 等於1秒
+            },5000);
+        };
+
+        function changePages (){
+            if (nowPage < 4){
+                nowPage++;
+            }else{
+                nowPage = 0;
+            };
+            const moveX = -800 * nowPage;
+            $('.img-wrap')..css('transition', '0.7s').css('transform', `translateX(${moveX}px)`);
+            $('.slider-dots li').eq(nowPage).css('background', '#fff').siblings().css('background', '#fff7');
+        };
+
+        function changePagesQuietly() {
+                if (nowPage < 4) {
+                    nowPage++;
+                } else {
+                    nowPage = 0;
+                };
+                const moveX = -800 * nowPage;
+                $('.img-wrap').css('transition', 'none').css('transform', `translateX(${moveX}px)`);
+            };
+
+        $('.wrap').mouseenter(function(){
+            clearInterval(myInterval);
+        });
+
+        $('.wrap').mouseleave(function () {
+             startMyInterval();
+        });
+
+
+        //  監聽 transition結束的瞬間(transitionend)
+        $('.img-wrap').on('transitionend',function(){
+            if(nowPage >= 4) {
+            nowPage = 0;
+            changePagesQuietly();
+            };
+        });
+
+
+
+    </script>
+    
+
+</body>
+</html>
