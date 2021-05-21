@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Form Event</title>
+    
+</head>
+<body>
+
+        <div class="container">
+            <div class="row mt-5">
+                <!-- form 預設GET送出資料 -->
+                <form action=""> 
+                    <div class="form-group">
+                        <input type="text" name="user" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="email" class="form-control">
+                    </div>
+
+                    <button class="btn btn-info" type="submit"> SUBMIT</button>
+                </form>
+            </div>
+        </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $('form').submit(function (event) {
+            event.preventDefault(); // 阻止預設行為（表單GET送出與刷新），用 JS 自己執行 ajax 去伺服器傳送表格裡的資料
+            // $.get(''); 可以用JQ寫法以GET送出表單資料
+            console.log('hi');
+        });
+
+
+        // .submit() 點了可以送出表單
+        // .focus() 偵測某個 input 變成輸入狀態
+        // .blur() 偵測離開某個 input 輸入狀態
+        // .change() 偵測 input 或 select 變化
+        $(':text').focus(function(){
+            console.log('focus');
+        });
+
+        $(':text').blur(function () {
+            console.log('blur');
+        });
+
+        $(':text').change(function () {
+            console.log('change');
+        });
+
+
+        // $(selector).on(event,childSelector,data,function)
+        // 綁定input觸發function
+        $(':text').on('input', function () {
+            console.log('change', $(this).val());
+        });
+    </script>
+
+</body>
+</html>

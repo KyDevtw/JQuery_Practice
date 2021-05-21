@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Scroll and Resize</title>
+    <style>
+        body{
+            height: 5000vh;
+        }
+    </style>
+    
+</head>
+<body>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script>
+        $(window).scroll(function(){
+            // .scroll()- 偵測滑鼠滾動
+
+
+            // ()內無值為偵測位置，有值則為指定位置
+            console.log('scroll', $(this).scrollTop()); // 偵測拉桿與頁面最頂端的距離
+            console.log('scroll', $(this).scrollLeft()); // 偵測拉桿與頁面最左邊的距離
+        });
+
+
+        $(window).resize(function () {
+            // .resize()- 偵測瀏覽器大小變化
+
+
+            // ()內無值為偵測長寬，有值則為指定長寬
+            console.log('scroll',$(this).width()); // 偵測頁面寬度
+            console.log('scroll', $(this).height()); // 偵測頁面高度
+        });
+
+    </script>
+    
+
+    
+
+</body>
+</html>

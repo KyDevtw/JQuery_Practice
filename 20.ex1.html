@@ -57,6 +57,19 @@
                 };
         });
 
+
+        // 寫法二執行效率較差
+        $('input[type="checkbox"]').click(function () {
+
+            // 先把全部的tr改成透明
+            $('tr').css('background', 'transparent');
+
+            // 再把有打勾的checkbox改成但藍色
+            $('input:checked').closest('tr').css('background', 'lightblue')
+        });
+
+
+
     </script>        
 </body>
 

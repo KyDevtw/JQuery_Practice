@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>EX 6</title>
+    
+</head>
+<body>
+
+    <div class="container">
+        <div class="row mt-5">
+            <form action="">
+                <div class="form-row">
+                    <div class="form-group mr-3">
+                        <select name="city" id="city" class="form-control">
+                            <option value="0">基隆</option>
+                            <option value="1">台北</option>
+                            <option value="2">新北</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="district" id="district" class="form-control">
+                            <option value="0">七堵區</option>
+                            <option value="1">中正區</option>
+                            <option value="2">暖暖區</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script>
+        let districtObj = [
+            ['七堵', '中正', '暖暖'], // 0
+            ['中正', '大安', '信義'], // 1
+            ['蘆洲', '三重', '新店'], // 2
+        ];
+        
+        $('#city').change(function () {
+            // 陣列帶入索引值（select的value）
+            console.log('hi', districtObj[$(this).val()] ,$(this).val());
+            console.log('hi2', $('#district option'));
+
+            const cityValue = $(this).val();
+
+            $('#district option').each(function(){
+                // $(this)是option的區
+                console.log('each', $(this).text());
+                $(this).text(districtObj[cityValue][$(this).val()] + "區");
+
+            });
+
+
+            // $(this) select 的 #city
+            // $('#district option').eq(0).text(districtObj[$(this).val()][0]);
+            // $('#district option').eq(1).text(districtObj[$(this).val()][1]);
+            // $('#district option').eq(2).text(districtObj[$(this).val()][2]);
+
+            
+             
+        });
+
+
+
+        // JS JQ混寫
+        // ​$('#city').change(function () { 
+        //     let countryIndex = +event.target.value; 
+        //     for (let i = 0; i < districtObj[countryIndex].length; i++) { 
+        //         $('#district').children().eq(i).text(`${districtObj[countryIndex][i]}區`) 
+        //     }; 
+        // });
+
+        // // append 寫法
+        // // 移除所有「#district 下拉式選單」裡面的內容
+        // $("#district").html(""); // 方法一
+        // $("#district").empty(); // 方法二
+        // $("#district option").remove(); // 方法三
+        
+        // // 再使用迴圈創建新節點
+        // const districtObjA = districtObj[$(this).val()];
+        // for (let i = 0; i < 3; i++) {
+        
+        // // 舉例，在 JS 是用這樣的方式創建一個新的 Element
+        // let option = document.createElement('option');
+
+        // $("#district").append("<option value='" + districtObjA[i] + "'>" + districtObjA[i] + "</option>");
+        
+        // };
+
+    </script>
+    
+
+    
+
+</body>
+</html>

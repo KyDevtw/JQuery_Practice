@@ -31,7 +31,7 @@
                         else.</small>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
+                    <label id='passLabel' for ="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="form-group form-check">
@@ -54,6 +54,12 @@
             $('#exampleInputPassword1').val('Kurtpwd')
             $('#exampleCheck1').prop('checked','true')
 
+        })
+
+        //關聯input，lable的 for 跟底下 input 的 id 如果為同值，點擊lable就會focus input
+        // 一件顯示密碼，將input的type更改為text
+        $('#passLabel').click(function () {
+            $('#exampleInputPassword1').attr('type', 'text');
         })
 
         // $('#exampleInputUsername1').val('456')
