@@ -27,6 +27,17 @@
             height: 50px;
             width: 100%;
         }
+
+        .img-wrap{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 750px;
+            left: 750px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: ;
+        }
     </style>
     
 </head>
@@ -34,8 +45,11 @@
 
     <div class="wrap">
         <div class="box">
-
         </div>
+    </div>
+
+    <div class="img-wrap">
+        <img src="./imgs/person1.jpg" alt="">
     </div>
 
 
@@ -61,7 +75,17 @@
             console.log('persent', persent);
             $('.box').css('width', persent + '%');
 
+
+            //
+            if (scrollTop > 705){
+                $('body').css('transition', '0.7s').css('background', 'lightblue');
+            }else{
+                $('body').css('background', 'white');
+            }
+
             });
+
+            
     </script>
 
 </body>
