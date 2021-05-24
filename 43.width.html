@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #afa;
+            padding: 20px;
+            border: 5px solid #000;
+        }
+    </style>
+    
+</head>
+
+<body>
+    
+    <div class="box"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+        // BOX MODEL使用Bootstrap會影響結果（box-sizing）
+
+        // width() - 設置或取得元素的宽度
+        // height() - 設置或取得元素的高度 括號內放值可自訂寬高
+        // /innerWidth() - 取得元素的寬度（含 padding）
+        // innerHeight() - 取得元素的高度（含 padding）
+        // 元素內不含border等
+
+        console.log('width',$('.box').width());
+        console.log('height', $('.box').height());
+        console.log('innerWidth', $('.box').innerWidth());
+        console.log('innerHeight', $('.box').innerHeight());
+
+        // 取得元素的寬度（包含 padding 和 border）
+        console.log('outerWidth', $('.box').outerWidth());
+        console.log('outerHeight', $('.box').outerHeight());
+
+        // 括號內加入true就包含margin
+        console.log('outerWidth w/ true', $('.box').outerWidth(true));
+        console.log('outerHeight w/ true', $('.box').outerHeight(true));
+    </script>
+
+
+</body>
+</html>

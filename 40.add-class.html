@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Get Started</title>
+
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #afa;
+            transition: 1s;
+            margin: 10px;
+        }
+
+        .active{
+            background-color: #faf;
+        }
+    </style>
+</head>
+<body>
+    <button id="addClass" class="btn btn-info"> add class</button>
+    <button id="removeClass" class="btn btn-info"> remove class</button>
+    <button id="toggleClass" class="btn btn-info"> toggle class</button>
+    <button id="hasClass" class="btn btn-info"> check class</button>
+    <button id="myToggle" class="btn btn-info"> my toggle</button>
+
+    <div class="box"></div>
+    <span></span>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    
+    <script>
+        // 增加 class
+        $('#addClass').click(function (){
+            $('.box').addClass('active');
+        });
+        // 移除 class
+        $('#removeClass').click(function () {
+            $('.box').removeClass('active');
+        });
+        // 切換 css 有就移除，無就新增
+        $('#toggleClass').click(function () {
+            $('.box').toggleClass('active');
+        });
+
+        // 判斷是否含有 class，回傳布林值
+        $('#myToggle').click(function () {
+            $('span').text($('.box').hasClass('active'));
+            // 透過判斷執行function
+            if ($('.box').hasClass('active')){
+                $('.box').removeClass('active');
+            }else{
+                $('.box').addClass('active');
+            };
+        });
+    </script>
+
+    
+
+</body>
+</html>

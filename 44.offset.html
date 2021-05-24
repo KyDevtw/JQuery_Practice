@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off set</title>
+    <style>
+        body{
+            margin: 200px 50px;
+        }
+
+        .height{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #afa;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="height">empty</div>
+    <div class="box">box</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+        // 視窗中的絕對位置
+        // offset() - 取得一個物件，包含top和left
+        // offset().left - 取得X座標
+        // offset().top - 取得Y座標
+        // 也可以傳入一個物件設定他的位置(數值為字串)
+        $(window).scroll(function(){
+            console.log('offset', $('.box').offset());
+            console.log('windowHeight', $(this).height());
+            console.log('window scrollTop', $(this).scrollTop());
+
+            // 設定scroll到特定點後換色
+            if ($(window).height() + $(this).scrollTop() >= $('.box').offset().top + 200) {
+                $('.box').css('background', 'red');
+            }
+
+
+        });
+
+        //  強制透過offset設定位置
+        $('.box').offset({
+            top: '50', //數值為字串
+            left: 100, // 直接使用數值也可以
+        });
+    </script>
+</body>
+</html>

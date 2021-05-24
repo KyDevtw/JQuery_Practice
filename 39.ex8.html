@@ -64,6 +64,8 @@
         let rightborder = parseInt($('.wrap').css('width'))- parseInt($('.box').css('width'))
         let bottomborder = parseInt($('.wrap').css('height')) - parseInt($('.box').css('height'))
 
+
+        // += -= JQ css 累進值寫法
         $('#up').click(function () {
             if(parseInt($('.box').css('top')) <= 0) return
             $('.box').css('top', '-=100px')
@@ -80,6 +82,26 @@
             if (parseInt($('.box').css('left')) >= rightborder) return
             $('.box').css('left', '+=100px')
         });
+
+
+
+        // 按了保持移動
+        // 透過setInterval不斷執行
+        let myInterval;
+        $('#right').mousedown(function () {
+            myInterval = setInterval(()=> {
+                if (parseInt($('.box').css('left')) >= rightborder) return
+                $('.box').css('left', '+=100px')
+            },100); 
+        // 100設定 幾毫秒的時間設定長度
+        });
+        // 放開時清除 setInterval
+        $('#right').mouseup(function () {
+            clearInterval(myInterval);
+        });
+
+
+        
 
 
 
@@ -121,6 +143,11 @@
                 $('.box').css('top', '+=100');
             }
         });
+
+
+        // $(document).on('keypress',function(e){
+        //     e.
+        // });
     </script>
 
 

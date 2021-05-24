@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX11</title>
+    <style>
+        body {
+            height: 500vh;
+        }
+    
+        header {
+            height: calc(100vh - 100px);
+        }
+    
+        nav {
+            background-color: lightblue;
+            height: 60px;
+            padding: 20px 0px;
+            text-align: center;
+            color: #fff;
+        }
+        .fixed{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>Hello World</header>
+    <nav class="nav">I'm Nav</nav>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        const navTop = $('.nav').offset().top;
+
+        $(window).scroll(function () {
+            // console.log('scrollTop', $(this).scrollTop());
+            // console.log('windowHeight', $(this).height());
+            // console.log('navTop',navTop);
+
+
+            // 當scrollTop大於 navTop時fixed
+            if($(this).scrollTop() >= navTop){
+                $('nav').addClass('fixed');
+            }else{
+                $('nav').removeClass('fixed');
+            };
+        });
+    </script>
+      
+</body>
+</html>
