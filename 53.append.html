@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append</title>
+</head>
+<body>
+    <input type="text" id="toDoList">
+    <button>add</button>
+    <div class="container">
+        <div class="row">
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+        // .append()在子層最後新增
+        $("ul").append("<li>item 3</li>");
+
+
+        $('button').click(function(){
+            $('ul').append(`<li>${$("#toDoList").val()}</li>`);
+        });
+    </script>
+</body>
+</html>
